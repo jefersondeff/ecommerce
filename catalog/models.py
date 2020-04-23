@@ -2,7 +2,6 @@ from django.db import models
 
 
 class Category(models.Model):
-
     name = models.CharField('Nome', max_length=100)
     slug = models.SlugField('Identificador', max_length=150)
     created = models.DateField('Criado em', auto_now_add=True)
@@ -12,6 +11,9 @@ class Category(models.Model):
         verbose_name = 'Categoria'
         verbose_name_plural = 'Categorias'
         ordering = ['name']
+
+    def __str__(self):
+        return self.name
 
 
 class Product(models.Model):
@@ -28,3 +30,5 @@ class Product(models.Model):
         verbose_name_plural = 'Produtos'
         ordering = ['name']
 
+    def __str__(self):
+        return self.name
